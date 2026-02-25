@@ -1,4 +1,4 @@
-var oTable;
+﻿var oTable;
 var filtroActivo = '1';
 
 function lista(estatus = 1){
@@ -33,7 +33,7 @@ function lista(estatus = 1){
             const Token = data.Respuesta[row].Token == null ? 'N/A': data.Respuesta[row].Token.trim()
             const Estatus = data.Respuesta[row].Estatus == 1 ? 'Activo': 'Inactivo'
             
-            const opciones = `<a href='HappyPortal_edita_usuarios.html?idcf=${ID}' title='Editar' class='fa-stack fa-lg'><i class='fa fa-edit fa-stack-1x'></i></a>`
+            const opciones = `<a href='configuracion_edita_usuarios.html?idcf=${ID}' title='Editar' class='fa-stack fa-lg'><i class='fa fa-edit fa-stack-1x'></i></a>`
             listado_.push([ID,NombreUsuario,Cuenta,Rol,NombreCuenta,Token,Estatus, opciones])
             
           }
@@ -55,7 +55,7 @@ function muestraTabla(datos){
   var banTable = 0;
             
   if (banTable){
-    $("#example").dataTable().fnDestroy();
+    if ($.fn.DataTable.isDataTable('#example')) { $('#example').DataTable().destroy(); }
   }
   banTable = 1;
   if("es" == $('#lang').val()){
@@ -63,14 +63,14 @@ function muestraTabla(datos){
     processing = "Procesando...";
     length = "Mostrar _MENU_ registros";
     zero = "No se encontraron resultados";
-    empty = "Ningún dato disponible en la tabla";
+    empty = "NingÃºn dato disponible en la tabla";
     info = "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ encontrados";
     infoEmpty = "No hay registros";
     filtered = "(filtrado de un total de _MAX_ registros)";
     search = "Buscar:";
     load = "Cargando...";
     first = "Primero";
-    last = "Último";
+    last = "Ãšltimo";
     next = "Anterior";
     previous = "Siguiente";
     sortAsc = "Presione para ordenar de forma ascendente";
@@ -95,7 +95,7 @@ function muestraTabla(datos){
     sortDesc = "Click to sort descending";
     all = "All";
   }
-  var oTable = $('#example').dataTable( {
+  var oTable = $('#example').DataTable({
                                 "aaData": datos,
                                 "bDestroy": true,
                                 

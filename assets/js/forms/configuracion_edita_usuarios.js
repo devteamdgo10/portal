@@ -1,4 +1,4 @@
-var Id_Usuario = 0;
+﻿var Id_Usuario = 0;
 let passwordOriginal
 
 function listaPermisos(){ 
@@ -31,7 +31,7 @@ function listaPermisos(){
              },
         error: function(a,b,c){
               console.log('Error: '+a+'\n'+b+'\n'+c);
-              div_noty({tipo:'warning', texto:"Falla en comunicación"})
+              div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
               reject(false)
              },
         complete:function(){
@@ -73,7 +73,7 @@ function consultaPermisos() {
         },
         error: function (a, b, c) {
           console.log('Error: ' + a + '\n' + b + '\n' + c);
-          div_noty({ tipo: 'warning', texto: "Falla en comunicación" })
+          div_noty({ tipo: 'warning', texto: "Falla en comunicaciÃ³n" })
         },
         complete: function () {
           //console.log("finally")
@@ -94,7 +94,7 @@ function muestraTabla(datos, tabla, busqueda = true) {
   var banTable = 0;
 
   if (banTable) {
-    $(`#${tabla}`).dataTable().fnDestroy();
+    if ($.fn.DataTable.isDataTable(`#${tabla}`)) { $(`#${tabla}`).DataTable().destroy(); }
   }
   banTable = 1;
 
@@ -103,14 +103,14 @@ function muestraTabla(datos, tabla, busqueda = true) {
     processing = "Procesando...";
     length = "Mostrar _MENU_ registros";
     zero = "No se encontraron resultados";
-    empty = "Ningún dato disponible en la tabla";
+    empty = "NingÃºn dato disponible en la tabla";
     info = "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ encontrados";
     infoEmpty = "No hay registros";
     filtered = "(filtrado de un total de _MAX_ registros)";
     search = `<i class="fa fa-search" aria-hidden="true" style="margin-right:10px; margin-left:10px;"></i>`;
     load = "Cargando...";
     first = "Primero";
-    last = "Último";
+    last = "Ãšltimo";
     next = "Anterior";
     previous = "Siguiente";
     sortAsc = "Presione para ordenar de forma ascendente";
@@ -135,7 +135,7 @@ function muestraTabla(datos, tabla, busqueda = true) {
     sortDesc = "Click to sort descending";
     all = "All";
   }
-  $(`#${tabla}`).dataTable({
+  $(`#${tabla}`).DataTable({
     "dom": '<"pull-left"f><"pull-right"l>tip',
     "aaData": datos,
     "bDestroy": true,
@@ -204,7 +204,7 @@ function obtieneRol(idr = 0){
     error: function(xhr, status){
           //console.log('Error: ',xhr);
           //console.log('Estatus: ',status);
-          div_noty({tipo:'warning', texto:"Falla en comunicación"})
+          div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
         },
     complete:function(){
       //console.log("finally")
@@ -247,7 +247,7 @@ function obtieneCuenta(idc = null){
     error: function(xhr, status){
           //console.log('Error: ',xhr);
           //console.log('Estatus: ',status);
-          div_noty({tipo:'warning', texto:"Falla en comunicación"})
+          div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
         },
     complete:function(){
       //console.log("finally")
@@ -290,7 +290,7 @@ function listaUsuarios(id){
               resolve(true);
             },
         error: function(xhr, status){
-              div_noty({tipo:'warning', texto:"Falla en comunicación"})
+              div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
               reject(false)
             },
       });
@@ -359,7 +359,7 @@ function deletePermiso(id){
       }     
     },
     error: function(xhr, status){
-      div_noty({tipo:'warning', texto:"Falla en comunicación"})
+      div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
     }
   });
 }
@@ -394,7 +394,7 @@ function addPermiso(idaccion){
     error: function(xhr, status){
       //console.log('Error: ',xhr);
       //console.log('Estatus: ',status);
-      div_noty({tipo:'warning', texto:"Falla en comunicación"})
+      div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
     }
   });
 }
@@ -456,9 +456,9 @@ $(document).ready(function(){
 
             if (accion === 'alt'){
               $("#saveButton").hide();
-              div_resp = {id:"message",tipo:'info',mensaje:"Uusario Guardado", btnTexto1:"Regresar", pathBtn1:"HappyPortal_lista_usuarios.html", btnTexto2:"Nuevo",pathBtn2:"HappyPortal_edita_usuarios.html"}              
+              div_resp = {id:"message",tipo:'info',mensaje:"Uusario Guardado", btnTexto1:"Regresar", pathBtn1:"configuracion_lista_usuarios.html", btnTexto2:"Nuevo",pathBtn2:"configuracion_edita_usuarios.html"}              
             }else{
-              div_resp = {id:"message",tipo:'info',mensaje:"Cambios Guardados", btnTexto1:"Regresar", pathBtn1:"HappyPortal_lista_usuarios.html", btnTexto2:"Nuevo",pathBtn2:"HappyPortal_edita_usuarios.html"}
+              div_resp = {id:"message",tipo:'info',mensaje:"Cambios Guardados", btnTexto1:"Regresar", pathBtn1:"configuracion_lista_usuarios.html", btnTexto2:"Nuevo",pathBtn2:"configuracion_edita_usuarios.html"}
             }
             divRespuesta(div_resp);
           }
@@ -469,11 +469,11 @@ $(document).ready(function(){
         error: function(xhr, status){
           //console.log('Error: ',xhr);
           //console.log('Estatus: ',status);
-          div_noty({tipo:'warning', texto:"Falla en comunicación"})
+          div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
         }
       });
     }else{
-      div_noty({tipo:'Atencion', texto:"La contraseña no coincide"})
+      div_noty({tipo:'Atencion', texto:"La contraseÃ±a no coincide"})
     }
 
   });/*submit*/

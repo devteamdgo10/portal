@@ -5,9 +5,43 @@ Ver
 1.100 RMJ   01dic21 Adición encode
 */
 function div_noty(Obj){
-	//$.noty.consumeAlert({layout: 'top', type: '<?= (true == $error) ? 'warning' : 'success' ?>', dismissQueue: true,timeout:1750});
-        $.noty.consumeAlert({layout: 'top', type: Obj.tipo, dismissQueue: true,timeout:1750});
-        alert(Obj.texto);
+  const tipo = (Obj && Obj.tipo ? String(Obj.tipo).toLowerCase() : 'info');
+  const texto = Obj && Obj.texto ? Obj.texto : '';
+  const tipoMap = {
+    success: 'success',
+    warning: 'warning',
+    error: 'danger',
+    danger: 'danger',
+    info: 'info',
+    atencion: 'warning'
+  };
+  const bsType = tipoMap[tipo] || 'info';
+
+  let host = document.getElementById('global-toast-host');
+  if (!host) {
+    host = document.createElement('div');
+    host.id = 'global-toast-host';
+    host.className = 'toast-container position-fixed top-0 end-0 p-3';
+    host.style.zIndex = '1080';
+    document.body.appendChild(host);
+  }
+
+  const toastNode = document.createElement('div');
+  toastNode.className = `toast align-items-center text-bg-${bsType} border-0`;
+  toastNode.setAttribute('role', 'alert');
+  toastNode.setAttribute('aria-live', 'assertive');
+  toastNode.setAttribute('aria-atomic', 'true');
+  toastNode.innerHTML = `<div class="d-flex"><div class="toast-body">${texto}</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div>`;
+
+  host.appendChild(toastNode);
+  if (window.bootstrap && window.bootstrap.Toast) {
+    const toast = new bootstrap.Toast(toastNode, { delay: 2500 });
+    toastNode.addEventListener('hidden.bs.toast', () => toastNode.remove());
+    toast.show();
+  } else {
+    alert(texto);
+    toastNode.remove();
+  }
 
 }
 

@@ -1,4 +1,4 @@
-var oTable;
+﻿var oTable;
 
 
 function lista(path){
@@ -55,7 +55,7 @@ function muestraTabla(datos){
   var banTable = 0;
             
   if (banTable){
-    $("#example").dataTable().fnDestroy();
+    if ($.fn.DataTable.isDataTable('#example')) { $('#example').DataTable().destroy(); }
   }
   banTable = 1;
   //$.fn.dataTable.TableTools.defaults.aButtons = [ "xls","pdf" ];//[ "copy", "csv", "xls","pdf" ];
@@ -64,14 +64,14 @@ function muestraTabla(datos){
     processing = "Procesando...";
     length = "Mostrar _MENU_ registros";
     zero = "No se encontraron resultados";
-    empty = "Ningún dato disponible en la tabla";
+    empty = "NingÃºn dato disponible en la tabla";
     info = "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ encontrados";
     infoEmpty = "No hay registros";
     filtered = "(filtrado de un total de _MAX_ registros)";
     search = "Buscar:";
     load = "Cargando...";
     first = "Primero";
-    last = "Último";
+    last = "Ãšltimo";
     next = "Anterior";
     previous = "Siguiente";
     sortAsc = "Presione para ordenar de forma ascendente";
@@ -96,7 +96,7 @@ function muestraTabla(datos){
     sortDesc = "Click to sort descending";
     all = "All";
   }
-  var oTable = $('#example').dataTable( {
+  var oTable = $('#example').DataTable({
                                 /*"sAjaxSource": "model/json-entidades.php", //+datos
                                 "sAjaxDataProp": "Table",
                                 "aoColumns": [
@@ -138,14 +138,6 @@ function muestraTabla(datos){
                               });
   //$('.dataTables_filter input').addClass('form-control').attr('placeholder', 'Search...');
   $('.dataTables_length select').addClass('form-control');
-  /*
-  var oTableTools = new TableTools( oTable, {
-    "sSwfPath": "assets/plugins/datatables/media/swf/copy_csv_xls_pdf.swf",
-    "aButtons": [//"copy",
-          //"csv",
-          "xls","pdf"]
-        } );
-  $('#demo').before( oTableTools.dom.container );*/
   $('.DTTT_button_xls').addClass('btn-alt');
   $('.DTTT_button_pdf').addClass('btn-alt');
 
@@ -174,7 +166,7 @@ function EliminarRelacion(id,nombre){
         error: function(xhr, status){
               console.log('Error: ',xhr);
               //console.log('Estatus: ',status);
-              div_noty({tipo:'warning', texto:"Falla en comunicación"})
+              div_noty({tipo:'warning', texto:"Falla en comunicaciÃ³n"})
             }
       });
   }
