@@ -1,0 +1,15 @@
+.clickable-div {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #c2c2c2;
+    cursor: pointer; /* Indica que el div es clickeable */
+}
+
+.clickable-div:hover {
+    background-color: rgb(190, 190, 190); /* Cambia el color cuando el puntero está sobre el div */
+}
+.clicked {
+    background-color: rgb(233, 233, 233);
+}
+.hovered {
+    background-color: lightgray;
+  }

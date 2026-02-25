@@ -1,0 +1,341 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#contact-info {
+    background-color: #63a1db;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    color: white;
+    text-align: left;
+}
+
+#contact-info h2 {
+    margin-bottom: 5px;
+}
+
+#contact-info p {
+    margin: 5px 0;
+    
+}
+.unread-counter {
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 50%; /* Para hacer un círculo */
+    margin-left: 10px; /* Mueve el contador hacia la derecha */
+}
+#chat-container {
+    max-width: auto;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#chat {
+    height: 700px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.message {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    width: fit-content; /* Ajusta la anchura del fondo automáticamente */
+    overflow: hidden;
+}
+
+.user-message {   
+    background-color: #05876F;
+    color: white;
+    text-align: right; /* Alinea a la derecha los mensajes del usuario */
+    margin-left: auto;
+}
+
+.bot-message {   
+    background-color: #7a7a7d;
+    color: white;
+    text-align: left; /* Alinea a la izquierda los mensajes del bot */
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 10px;
+}
+
+#user-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+#user-message {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #008CBA;
+    color: white;
+    border-radius: 3px;
+   
+}
+.contacts-container {
+    width: auto;
+    height: 280px; /* Establece la altura máxima del contenedor en 200 píxeles */
+    overflow: auto;
+    border-right: 1px solid #ccc;
+  }
+
+  .contact {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+  }
+  .contact:hover {
+    background-color: #e6e6e6; /* Cambia el color al pasar el cursor */
+  }
+  #Archivados-container input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#Archivados-container input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+#Archivados-container input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#Archivados-container input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#contacts-container input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#contacts-container input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.modal {
+    display: none; /* Por defecto, el modal está oculto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 18%;
+  }
+  
+  .close {
+    color: red; /* Cambiar el color de la tacha a rojo */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: darkred; /* Cambiar el color al pasar el mouse */
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-contenido {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .cerrar:hover,
+  .cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 4px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    min-width: 160px;
+    padding: 12px 16px;
+    z-index: 1;
+    left: -120px; /* Ajusta la posición hacia la izquierda */
+    top: -150%; /* Ajusta la posición hacia arriba */
+  }
+
+  .dropdown-content button {
+    display: block;
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #333333; /* Texto oscuro */
+  }
+
+  .dropdown-content button:hover {
+    background-color: #b3b3b3; /* Fondo gris claro al pasar el ratón */
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-btn {
+    background-color: transparent;
+    color: #333333; /* Texto oscuro */
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown-btn:hover {
+    background-color: #f2f2f2; /* Fondo gris claro al pasar el ratón */
+  }
+
+  .dropdown-item {
+    color: #333; /* Set color for dropdown items */
+    background-color: #f8f9fa; /* Set background color for dropdown items */
+    border: none; /* Remove border */
+    padding: 8px 16px; /* Add padding */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Make the items take up full width */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis if text overflows */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: #fff; /* Change text color on hover/focus */
+    background-color: #6c747c; /* Change background color on hover/focus */
+}
+
+.modal-image {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content-image {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+ min-width: 0px;
+ 
+  max-width: 1300px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modalContent {
+  text-align: center;
+}
+
+#modalContent img {
+  max-width: 100%;
+  max-height: 80vh;
+}

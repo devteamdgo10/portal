@@ -1,0 +1,31 @@
+.jstree-grid-cell .fa-folder {
+    color: rgb(194, 169, 27) !important;
+}
+
+.jstree-grid-cell .fa-file {
+    color: rgb(52, 145, 176) !important;
+}
+#loader {
+position: fixed; /* Posiciona el loader en relación a la ventana */
+top: 50%; /* Mueve el loader al 50% desde la parte superior de la ventana */
+left: 50%; /* Mueve el loader al 50% desde la parte izquierda de la ventana */
+transform: translate(-50%, -50%); /* Ajusta la posición exacta para que esté perfectamente centrado */
+z-index: 9999; /* Asegura que el loader esté por encima de otros elementos */
+text-align: center; /* Centra el texto (icono) dentro del contenedor */
+background-color: rgba(255, 255, 255, 0.8); /* Opcional: añade un fondo semitransparente */
+padding: 20px;
+border-radius: 10px; /* Añade esquinas redondeadas */
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Añade una pequeña sombra para destacar */
+}
+.actions-cell a[data-visible='false'] {
+    display: none; /* Oculta los elementos con data-visible='false' */
+}
+
+
+
+.custom-icon {
+    font-size: 16px; /* Ajusta el tamaño del icono según sea necesario */
+    vertical-align: middle; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente (opcional) */
+    height: 100%; /* Asegura que la celda tenga altura suficiente */
+}
