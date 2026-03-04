@@ -4,7 +4,7 @@ var filtroActivo = '1';
 function lista(path, estatus = 1){
 
   $.ajax({
-    url: path+"/api/MG/RolesCON",
+    url: path+"/api/Portal/RolesCON",
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({"Estatus": estatus}),

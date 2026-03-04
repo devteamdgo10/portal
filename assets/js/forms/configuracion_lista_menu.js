@@ -4,7 +4,7 @@ var filtroActivo = '1';
 function lista(path, estatus = 1){
 
   $.ajax({
-    url: path+"/api/MG/MenusCON",
+    url: path+"/api/Portal/MenusCON",
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({"Estatus": estatus}),
@@ -151,7 +151,7 @@ function filtrarLista(){
 function Eliminar(id,nombre){
   if (confirm('Eliminar ' + nombre+'  ?')) {
     $.ajax({
-      url: sessionStorage.pathWs + "/api/MG/MenusDEL",
+      url: sessionStorage.pathWs + "/api/Portal/MenusDEL",
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ Id_Menu: id}),

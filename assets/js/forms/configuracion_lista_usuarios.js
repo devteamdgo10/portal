@@ -2,7 +2,7 @@
 var filtroActivo = '1';
 
 function lista(estatus = 1){
-  url_ = sessionStorage.pathWs+"/api/MG/UsuariosCON"
+  url_ = sessionStorage.pathWs+"/api/Portal/UsuariosCON"
   let params = {}
   if(sessionStorage.Rol == 1){
     params = {"Estatus":estatus}

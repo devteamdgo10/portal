@@ -4,7 +4,7 @@ var filtroActivo = '1';
 function lista(estatus = 1){
 
   $.ajax({
-    url: sessionStorage.pathWs+"/api/MG/ModulosCON",
+    url: sessionStorage.pathWs+"/api/Portal/ModulosCON",
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({"Estatus": estatus}),

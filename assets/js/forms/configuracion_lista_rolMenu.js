@@ -2,7 +2,7 @@
 
 
 function lista(path){
-  url_ = path+"/api/MG/RolMenuCON"
+  url_ = path+"/api/Portal/RolMenuCON"
   $.ajax({
     url: url_,
     type: 'POST',
@@ -145,7 +145,7 @@ function muestraTabla(datos){
 
 function EliminarRelacion(id,nombre){
   if (confirm('Eliminar ' + nombre+'  ?')) {
-    let url =`${sessionStorage.pathWs}/api/MG/RolMenuDEL`;
+    let url =`${sessionStorage.pathWs}/api/Portal/RolMenuDEL`;
 
       $.ajax({
         url: url,

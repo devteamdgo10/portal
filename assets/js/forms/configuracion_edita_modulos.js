@@ -1,7 +1,7 @@
 
 function ObtineModulo(params){
   $.ajax({
-    url: sessionStorage.pathWs+"/api/MG/ModulosCON",
+    url: sessionStorage.pathWs+"/api/Portal/ModulosCON",
     headers: { 
       'Accept': 'application/json',
       'Content-Type': 'application/json' 
@@ -70,9 +70,9 @@ $().ready(function(){
     
     if (accion === 'alt'){
       
-      url = sessionStorage.pathWs+"/api/MG/ModulosALT"
+      url = sessionStorage.pathWs+"/api/Portal/ModulosALT"
     }else{
-      url = sessionStorage.pathWs+"/api/MG/ModulosACT"
+      url = sessionStorage.pathWs+"/api/Portal/ModulosACT"
     
     } 
     params = form.serializeArray();

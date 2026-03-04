@@ -5,7 +5,7 @@ function listaPermisos(){
   return new Promise((resolve, reject) => {
     try {
       $.ajax({
-        url: sessionStorage.pathWs + "/api/MG/CatTipoAccionesCON",
+        url: sessionStorage.pathWs + "/api/Portal/CatTipoAccionesCON",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({}),
@@ -49,7 +49,7 @@ function consultaPermisos() {
   return new Promise((resolve, reject) => {
     try {
       $.ajax({
-        url: sessionStorage.pathWs + "/api/MG/PermisosUsuariosCON",
+        url: sessionStorage.pathWs + "/api/Portal/PermisosUsuariosCON",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ Usuario_Id: Id_Usuario }), // Your JSON data
@@ -174,7 +174,7 @@ function muestraTabla(datos, tabla, busqueda = true) {
 }
 
 function obtieneRol(idr = 0){  
-  const pathservice = sessionStorage.pathWs+"/api/MG/RolesCON"
+  const pathservice = sessionStorage.pathWs+"/api/Portal/RolesCON"
   $.ajax({
     url: pathservice,
     type: 'POST',
@@ -216,7 +216,7 @@ function obtieneRol(idr = 0){
 
 function obtieneCuenta(idc = null){  
   $.ajax({
-    url:  sessionStorage.pathWs+"/api/MG/CuentasCON",
+    url:  sessionStorage.pathWs+"/api/Portal/CuentasCON",
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({Activo: 1}),
@@ -261,7 +261,7 @@ function listaUsuarios(id){
   return new Promise((resolve, reject) => {
     try {
       $.ajax({
-          url:  sessionStorage.pathWs +"/api/MG/UsuariosCON",
+          url:  sessionStorage.pathWs +"/api/Portal/UsuariosCON",
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify({ Id_Usuario: id }), // Your JSON data
@@ -342,7 +342,7 @@ function deletePermiso(id){
 
     
     type: "POST",
-    url: sessionStorage.pathWs +"/api/MG/PermisosUsuariosDEL",
+    url: sessionStorage.pathWs +"/api/Portal/PermisosUsuariosDEL",
     data: params =JSON.stringify({
       Id_PermisoUsuario:id
     }),      
@@ -371,7 +371,7 @@ function addPermiso(idaccion){
         'Content-Type': 'application/json' 
     },    
     type: "POST",
-    url: sessionStorage.pathWs +"/api/MG/PermisosUsuariosALT",
+    url: sessionStorage.pathWs +"/api/Portal/PermisosUsuariosALT",
     data: params =JSON.stringify({
       Accion_Id:idaccion,
       Usuario_Id:Id_Usuario
@@ -419,7 +419,7 @@ $(document).ready(function(){
       const e = document.getElementById("Pwd").value;
       if (accion === 'alt'){
         //tipo =   "POST";
-        url = sessionStorage.pathWs +"/api/MG/UsuariosALT";
+        url = sessionStorage.pathWs +"/api/Portal/UsuariosALT";
         
         document.getElementById("Pwd").value = CryptoJS.MD5(e).toString();
         document.getElementById("Pwd2").value = document.getElementById("Pwd").value;
@@ -431,7 +431,7 @@ $(document).ready(function(){
           document.getElementById("Pwd2").value = document.getElementById("Pwd").value;
         }
 
-        url = sessionStorage.pathWs +"/Api/MG/UsuariosACT"
+        url = sessionStorage.pathWs +"/Api/Portal/UsuariosACT"
       } 
       params = form.serializeArray();  
       

@@ -1,5 +1,5 @@
 function obtiene(idcf){
-  const pathservice = sessionStorage.pathWs+"/api/MG/RolesCON"
+  const pathservice = sessionStorage.pathWs+"/api/Portal/RolesCON"
   $.ajax({
     url: pathservice,
     headers: { 
@@ -70,10 +70,10 @@ $().ready(function(){
 
     if (accion === 'alt'){
       //tipo =   "POST";
-      url = sessionStorage.pathWs+"/api/MG/RolesALT" //?"+form.serialize();
+      url = sessionStorage.pathWs+"/api/Portal/RolesALT" //?"+form.serialize();
     }else{
       //tipo =   "PUT";
-      url = sessionStorage.pathWs+"/api/MG/RolesACT" //?"+form.serialize();
+      url = sessionStorage.pathWs+"/api/Portal/RolesACT" //?"+form.serialize();
     } 
 
     

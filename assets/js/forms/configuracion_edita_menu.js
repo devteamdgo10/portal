@@ -9,7 +9,7 @@ $(".chkbox").change(function(){
 
 function obtiene(idcf){
   $.ajax({
-    url: sessionStorage.pathWs+"/api/MG/MenusCON",
+    url: sessionStorage.pathWs+"/api/Portal/MenusCON",
     headers: { 
       'Accept': 'application/json',
       'Content-Type': 'application/json' 
@@ -63,7 +63,7 @@ function obtieneModulo(idcf){
   /*if (idcf>0){
     params['Id_Modulo'] = idcf;
   }*/
-  const pathservice = sessionStorage.pathWs+"/api/MG/ModulosCON"
+  const pathservice = sessionStorage.pathWs+"/api/Portal/ModulosCON"
   $.ajax({
     url: pathservice,
     type: 'POST',
@@ -143,9 +143,9 @@ $().ready(function(){
 
     if (accion === 'alt'){
       
-      url = sessionStorage.pathWs+"/api/MG/MenusALT"; //?"+form.serialize();
+      url = sessionStorage.pathWs+"/api/Portal/MenusALT"; //?"+form.serialize();
     }else{
-      url = sessionStorage.pathWs+"/api/MG/MenusACT"; //?"+form.serialize();
+      url = sessionStorage.pathWs+"/api/Portal/MenusACT"; //?"+form.serialize();
     } 
 
     var VisibleObj = params.find(function(item){

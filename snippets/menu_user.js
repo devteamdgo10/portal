@@ -40,7 +40,7 @@ $().ready(function(){
             //dataType: "json", 
             contentType: 'application/json',
             Params : Parametros,
-            url: `${sessionStorage.pathWs}/api/MG/SesionesDEL`, 
+            url: `${sessionStorage.pathWs}/api/Portal/SesionesDEL`, 
             beforeSend: function(a){
               console.log("Params =>",sessionStorage.getItem("_TOKEN"));
               //sessionStorage.clear();

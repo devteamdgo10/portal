@@ -83,7 +83,7 @@ function Ver(id){
   if($("#p_"+id).prop('checked')) {
         altaRolMenu($("#p_"+id).val())        
     } else {
-      let url =`${sessionStorage.pathWs}/api/MG/RolMenuDEL`;
+      let url =`${sessionStorage.pathWs}/api/Portal/RolMenuDEL`;
       params = {'Id_Relacion':$("#p_"+id).attr("rel")} 
       $.ajax({
         url: url,
@@ -119,7 +119,7 @@ function Ver(id){
 }
 
 function obtieneRolMenu(id){
-  const pathservice = sessionStorage.pathWs+"/api/MG/RolMenuCON"
+  const pathservice = sessionStorage.pathWs+"/api/Portal/RolMenuCON"
   $.ajax({
     url: pathservice,
     headers: { 
@@ -157,7 +157,7 @@ function obtieneRolMenu(id){
 }
 
 function obtieneRol(idcf){
-  const pathservice = sessionStorage.pathWs+"/api/MG/RolesCON"
+  const pathservice = sessionStorage.pathWs+"/api/Portal/RolesCON"
   $.ajax({
     url: pathservice,
     headers: { 
@@ -204,7 +204,7 @@ function obtieneRol(idcf){
 
 function altaRolMenu(IdMenu){
   const Rol_ID = document.getElementById("Rol_ID").value;
-  let url =`${sessionStorage.pathWs}/api/MG/RolMenuALT`; 
+  let url =`${sessionStorage.pathWs}/api/Portal/RolMenuALT`; 
       
   params = {'Rol_ID':Rol_ID, 'Menu_ID':IdMenu}
 
@@ -244,7 +244,7 @@ function altaRolMenu(IdMenu){
 function obtieneMenu(){
   $.ajax({
     async:false,
-    url: sessionStorage.pathWs+"/api/MG/MenusCON",
+    url: sessionStorage.pathWs+"/api/Portal/MenusCON",
     headers: { 
       'Accept': 'application/json',
       'Content-Type': 'application/json' 
